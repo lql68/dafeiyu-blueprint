@@ -6,7 +6,7 @@
 
 ---
 
-## 六套系统
+## 七套系统
 
 | 系统 | 一句话 | 数据落在 | 文档 |
 |---|---|---|---|
@@ -16,6 +16,7 @@
 | **自主思考** | 缺口 → 假设 → 自己查 → 判断 → 想不通就问他 | `autonomy.db`（9 张表） | [04](04-自主思考/) |
 | **成长与技能** | 做成的事沉淀成技能，失败沉淀成缺口 | `procedures` + `gaps` | [05](05-成长与技能/) |
 | **通话与形象** | Live2D + 语音合成 + 摄像头，真的能视频 | 独立仓库 [dafeiyu-call-starmap](https://github.com/lql68/dafeiyu-call-starmap) | [06](06-通话与形象/) |
+| **时间感知** | 她知道自己几点、知道上次说话是多久前、知道「上周三」是哪天 | `memory_atoms.event_time` + `scheduler_state.json` | [07](07-时间感知与时间连续性/) |
 
 ---
 
@@ -124,8 +125,20 @@ IndexTTS 的三路条件里，参考音频的 mel 同时决定了音色和说话
                实现记录.md                 九个子系统真实数据 + 闭环缺口
 05-成长与技能/ 成长与技能.md               技能表、缺口池、成长聚合
 06-通话与形象/ README-通话.md               Live2D + TTS + 摄像头的工程细节
+07-时间感知与时间连续性/
+               README.md                   统一时钟 + 中文时间解析 + 时间化记忆 + 任务预算
+               阶段2/2.5-交付报告.md        时间底座接进 voice_server 与 QQ 通路
+               阶段3-A-只读审计报告.md      event_time 1.7% 的根因、四个缺失
+               阶段3-B-设计核查报告.md      四个检索器签名、source_time 是消息时间
+               阶段3-交付报告.md           七处改动 + DB 迁移 + 解析能力表
+               阶段3-验收补充报告.md       全量测试定位 + 端到端 + 修掉 atom_time bug
+               V1.0-交付报告.md            七模块总验收、六场景 39 项、调度器
 99-参考/       数字生命-抖音5条拆解.md       同题材产品的真实实现（含核对纠错）
 ```
+
+代码在 [`lql68/dafeiyu-core`](https://github.com/lql68/dafeiyu-core)：
+`temporal` / `scheduler` / `rhythm` / `selfstory` / `selfmodel` / `autonomy` / `growth` / `perm` / `school` / `tuning`，
+248 个测试，零第三方依赖。
 
 ---
 
